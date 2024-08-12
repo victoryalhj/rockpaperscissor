@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
 import Box from "./component/Box"
 
@@ -13,9 +13,9 @@ const choice = {
     name:"Rock",
     img:"https://t3.ftcdn.net/jpg/02/93/71/22/360_F_293712283_EGPqlm1bxpH0ZnrngyjRBol9GnJm2ST7.jpg"
   },
-  scissor:{
+  scissors:{
     name:"Scissors",
-    img:"https://breeze-media.vega.co.in/media/catalog/product/cache/1ef41c8834aa6b772f4686b0f4051c34/1/_/1_41_5.jpg"
+    img:"https://www.schooldepot.co.nz/cdn/shop/products/Warwick-School-Scissors-5-inch-127mm-Graduated.jpg"
   },
   paper:{
     name:"Paper",
@@ -23,16 +23,23 @@ const choice = {
   }
 }
 function App() {
+  const [userSelect, setUserSelect] = useState(null)
+
+  const play=(userChoice)=>{
+    setUserSelect(choice[userChoice])
+  
+  };
+
   return (
     <div>
       <div className ="main">
-        <Box title="You"/>
-        <Box title="Computer" />
+        <Box title="You" item={userSelect}/>
+        {/* <Box title="Computer" /> */}
       </div>
       <div className="main">
-        <button>Scissors</button>
-        <button>Rock</button>
-        <button>Paper</button>
+        <button onClick={() => play("scissors")}>Scissors</button>
+        <button onClick={() => play("rock")}>Rock</button>
+        <button onClick={() => play("paper")}>Paper</button>
       </div>
     </div>
   );
