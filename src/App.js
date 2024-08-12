@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <div className ="main">
-        <Box title="You" item={userSelect}/>
+        <Box title="You" choice={choice.rock} item={userSelect}/>
         {/* <Box title="Computer" /> */}
       </div>
       <div className="main">
