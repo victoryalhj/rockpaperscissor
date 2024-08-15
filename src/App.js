@@ -29,7 +29,7 @@ function App() {
   const [result,setResult]=useState("");
   const play=(userChoice)=>{
     setUserSelect(choice[userChoice]);
-    let computerChoice = randomChoice();
+    const computerChoice = randomChoice();
     setComputerSelect(computerChoice);
     setResult(judgement(choice[userChoice],computerChoice));
   };
